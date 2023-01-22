@@ -12,9 +12,34 @@
   > div {
     width: 100%;
   }
-  
+
   button {
     background-color: rgba(205, 22, 255, 0.30);
     width: 100%;
+  }
+
+  .radios {
+
+    > label {
+
+
+      &:nth-child(1) {
+        span {
+          color: #6cff6c;
+        }
+      }
+
+      &:nth-child(2) {
+        span {
+          color: #514dff;
+        }
+      }
+
+      &:nth-child(3) {
+        span {
+          // color: #a13cff;
+        }
+      }
+    }
   }
 }

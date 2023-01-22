@@ -13,7 +13,8 @@ export interface TaskModel {
 
 export enum TaskStatus {
   'active',
-  'completed'
+  'completed',
+  'inProgress'
 }
 
 export interface DefaultTaskResponse<T = {}> {
