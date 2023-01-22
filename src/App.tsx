@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useAppDispatch } from './store/hooks/useAppDispatch'
+import { useAppSelector } from './store/hooks/useAppSelector'
+import { selectTodos } from './features/Todo/selectors/selectTodos'
+import { useEffect } from 'react'
+import { fetchAsyncTodos } from './features/Todo/services/fetchAsyncTodos'
+import { Todolist } from './components/Todolist/Todolist'
+import { ErrorAlert } from './components/ErrorAlert/ErrorAlert'
+import { PageLoader } from './components/PageLoader/PageLoader'
 
-function App() {
+export const App = () => {
+  const dispatch = useAppDispatch()
+  const todos = useAppSelector(selectTodos)
+
+  useEffect(() => {
+    dispatch(fetchAsyncTodos())
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <div className='app'>
+      <div className='todos'>
+        {todos.map(todo => (
+          <Todolist key={todo.id} todo={todo} />
+        ))}
+      </div>
 
-export default App;
+      <PageLoader />
+      <ErrorAlert />
+    </div>
+  )
+}
