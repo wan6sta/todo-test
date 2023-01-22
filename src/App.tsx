@@ -6,6 +6,7 @@ import { fetchAsyncTodos } from './features/Todo/services/fetchAsyncTodos'
 import { Todolist } from './components/Todolist/Todolist'
 import { ErrorAlert } from './components/ErrorAlert/ErrorAlert'
 import { PageLoader } from './components/PageLoader/PageLoader'
+import { AddNewTodo } from './components/AddNewTodo/AddNewTodo'
 
 export const App = () => {
   const dispatch = useAppDispatch()
@@ -21,6 +22,7 @@ export const App = () => {
         {todos.map(todo => (
           <Todolist key={todo.id} todo={todo} />
         ))}
+        <AddNewTodo />
       </div>
 
       <PageLoader />

@@ -1,0 +1,17 @@
+.AddNewTodo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: #47005b;
+
+  > div > div {
+    > fieldset {
+      border-color: #cd16ff !important;
+    }
+  }
+
+  > button {
+
+  }
+}

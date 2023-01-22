@@ -9,8 +9,10 @@ import { useAppDispatch } from '../../store/hooks/useAppDispatch'
 import { setTodo } from '../../features/Task/services/fetchTasks'
 import { ErrorAlert } from '../ErrorAlert/ErrorAlert'
 import { PageLoader } from '../PageLoader/PageLoader'
-import { AddNewTodo } from '../AddNewTodo/AddNewTodo'
+import { AddNewTask } from '../AddNewTask/AddNewTask'
 import { motion } from 'framer-motion'
+import { EditTitle } from '../EditTitle/EditTitle'
+import { DeleteTodo } from '../DeleteTodo/DeleteTodo'
 
 interface Props {
   todo: TodoModel
@@ -32,14 +34,15 @@ export const Todolist: FC<Props> = props => {
       className={cls.Todolist}
     >
       <Paper className={cls.todo}>
-        <h2>{todo.title.slice(0, 14)}</h2>
+        <EditTitle todoTitle={todo.title} />
         {tasks?.map(task => (
           <Task task={task} key={task.id} />
         ))}
-        <AddNewTodo />
+        <AddNewTask />
       </Paper>
       <ErrorAlert />
       <PageLoader />
+      <DeleteTodo />
     </motion.div>
   )
 }

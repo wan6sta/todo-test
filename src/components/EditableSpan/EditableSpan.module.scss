@@ -1,0 +1,14 @@
+.EditableSpan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 100%;
+
+  > h2 {
+    font-size: 22px;
+    color: #cd16ff;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+}
