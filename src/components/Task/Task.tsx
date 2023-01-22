@@ -26,8 +26,8 @@ export const Task: FC<Props> = ({ task }) => {
   }
 
   const showHandler = (e: MouseEvent<HTMLDivElement>) => {
-    console.log(e.pageY)
-    console.log(e.pageX)
+    // console.log(e.pageY)
+    // console.log(e.pageX)
     setMousePos([e.pageX, e.pageY])
     setOpen(true)
   }

@@ -5,16 +5,22 @@ import { TextField } from '@mui/material'
 interface Props {
   todoTitle: string
   className?: string
+  callback?: (str: string) => void
 }
 
-export const EditableSpan: FC<Props> = ({ todoTitle, className }) => {
+export const EditableSpan: FC<Props> = ({ todoTitle, className, callback }) => {
   const [showInput, setShowInput] = useState(false)
+  const [newTitle, setNewTitle] = useState(todoTitle)
 
   const content = showInput ? (
     <TextField
       onBlur={() => {
+        if (!newTitle || !callback) return
+        callback(newTitle)
         setShowInput(false)
       }}
+      value={newTitle}
+      onChange={e => setNewTitle(e.currentTarget.value)}
       autoFocus={true}
       style={{ width: '100%' }}
       variant='standard'

@@ -6,7 +6,11 @@ export const PageLoader = () => {
   const isLoading = useAppSelector(selectIsLoading)
 
   if (isLoading) {
-    return <LinearProgress />
+    return (
+      <div className='loader'>
+        <LinearProgress color='secondary' />
+      </div>
+    )
   }
 
   return null

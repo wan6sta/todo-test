@@ -7,8 +7,6 @@ import cls from './Todolist.module.scss'
 import { Paper } from '@mui/material'
 import { useAppDispatch } from '../../store/hooks/useAppDispatch'
 import { setTodo } from '../../features/Task/services/fetchTasks'
-import { ErrorAlert } from '../ErrorAlert/ErrorAlert'
-import { PageLoader } from '../PageLoader/PageLoader'
 import { AddNewTask } from '../AddNewTask/AddNewTask'
 import { motion } from 'framer-motion'
 import { EditTitle } from '../EditTitle/EditTitle'
@@ -34,15 +32,13 @@ export const Todolist: FC<Props> = props => {
       className={cls.Todolist}
     >
       <Paper className={cls.todo}>
-        <EditTitle todoTitle={todo.title} />
+        <EditTitle todoTitle={todo.title} todoId={todo.id} />
         {tasks?.map(task => (
           <Task task={task} key={task.id} />
         ))}
         <AddNewTask />
       </Paper>
-      <ErrorAlert />
-      <PageLoader />
-      <DeleteTodo />
+      <DeleteTodo todoId={todo.id} />
     </motion.div>
   )
 }

@@ -23,19 +23,19 @@ export const EditTask = () => {
           value='female'
           color='secondary'
           control={<Radio />}
-          label='Active'
+          label='Completed'
         />
         <FormControlLabel
           value='male'
           color='secondary'
           control={<Radio />}
-          label='Completed'
+          label='In Progress'
         />
         <FormControlLabel
           value='other'
           color='secondary'
           control={<Radio />}
-          label='Later'
+          label='Active'
         />
       </RadioGroup>
 
