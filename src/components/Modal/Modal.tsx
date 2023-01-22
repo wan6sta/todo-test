@@ -1,7 +1,7 @@
 import cls from './Modal.module.scss'
 import { FC, PropsWithChildren } from 'react'
-import { Portal } from '../Portal/Portal'
 import { motion } from 'framer-motion'
+import { Portal } from '../Portal/Portal'
 
 interface Props {
   open: boolean
@@ -20,7 +20,7 @@ export const Modal: FC<PropsWithChildren<Props>> = ({
   if (!open) return null
 
   return (
-    <Portal>
+    <Portal element={document.getElementById('root')}>
       <div onClick={setOpen} tabIndex={1} className={cls.Modal}>
         <motion.div
           style={{ left: x - 160, top: y - 160 }}

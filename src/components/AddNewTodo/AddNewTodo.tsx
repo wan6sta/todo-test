@@ -20,7 +20,7 @@ export const AddNewTodo = () => {
     <motion.div
       drag
       dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-      initial={{ scale: 1, y: -100 }}
+      initial={{ scale: 1, y: -10 }}
       whileInView={{ scale: 1, y: 0 }}
       className={cls.AddNewTodo}
     >
