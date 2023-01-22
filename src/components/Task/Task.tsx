@@ -35,6 +35,8 @@ export const Task: FC<Props> = ({ task }) => {
   return (
     <>
       <motion.div
+        initial={{ scale: 0.5, y: 10 }}
+        whileInView={{ scale: 1, y: 0 }}
         onClick={showHandler}
         className={cls.TaskWrapper}
         style={{ background }}

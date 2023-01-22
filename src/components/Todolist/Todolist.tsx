@@ -36,7 +36,7 @@ export const Todolist: FC<Props> = props => {
         {tasks?.map(task => (
           <Task task={task} key={task.id} />
         ))}
-        <AddNewTask />
+        <AddNewTask todoId={todo.id} />
       </Paper>
       <DeleteTodo todoId={todo.id} />
     </motion.div>
