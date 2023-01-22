@@ -59,6 +59,32 @@ export const taskReducer = (
         error: action.payload
       }
 
+    case 'task/deleteTask':
+      return {
+        ...state,
+        status: 'loading',
+        error: null
+      }
+
+    case 'task/deleteTaskSuccess':
+      return {
+        ...state,
+        status: 'succeeded',
+        tasks: {
+          ...state.tasks,
+          [action.payload.todoId]: state.tasks[action.payload.todoId].filter(
+            task => task.id !== action.payload.taskId
+          )
+        }
+      }
+
+    case 'task/deleteTaskError':
+      return {
+        ...state,
+        status: 'failed',
+        error: action.payload
+      }
+
     default:
       return state
   }
@@ -71,6 +97,9 @@ type Action =
   | ReturnType<typeof addTask>
   | ReturnType<typeof addTaskSuccess>
   | ReturnType<typeof addTaskError>
+  | ReturnType<typeof deleteTask>
+  | ReturnType<typeof deleteTaskSuccess>
+  | ReturnType<typeof deleteTaskError>
 
 export const fetchTasks = () =>
   ({
@@ -109,5 +138,25 @@ export const addTaskSuccess = (task: TaskModel, todoId: string) =>
 export const addTaskError = (errorMessage: string) =>
   ({
     type: 'task/addTaskError',
+    payload: errorMessage
+  } as const)
+
+export const deleteTask = () =>
+  ({
+    type: 'task/deleteTask'
+  } as const)
+
+export const deleteTaskSuccess = (todoId: string, taskId: string) =>
+  ({
+    type: 'task/deleteTaskSuccess',
+    payload: {
+      todoId,
+      taskId
+    }
+  } as const)
+
+export const deleteTaskError = (errorMessage: string) =>
+  ({
+    type: 'task/deleteTaskError',
     payload: errorMessage
   } as const)
