@@ -27,6 +27,12 @@
     gap: 50px;
 }
 
+@media screen and (max-width: 400px) {
+    .todos {
+        gap: 20px;
+    }
+}
+
 .loader {
     position: absolute;
     top: 0;
