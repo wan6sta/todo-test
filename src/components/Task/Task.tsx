@@ -4,6 +4,7 @@ import cls from './Task.module.scss'
 import { motion, useMotionValue, useTransform } from 'framer-motion'
 import { Modal } from '../Modal/Modal'
 import { EditTask } from '../EditTask/EditTask'
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline'
 
 type Props = {
   task: TaskModel
@@ -47,6 +48,14 @@ export const Task: FC<Props> = ({ task }) => {
           style={{ x }}
         >
           <span>{task.title.slice(0, 25)}</span>
+          <motion.div
+            onClick={e => e.stopPropagation()}
+            className={cls.delete}
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <DeleteOutlineIcon />
+          </motion.div>
         </motion.div>
       </motion.div>
 

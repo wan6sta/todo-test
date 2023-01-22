@@ -17,4 +17,24 @@
 
 .TaskWrapper {
   width: 100%;
+  position: relative;
+
+  &:hover {
+    .delete {
+      opacity: 0.5;
+    }
+  }
+
+  .delete {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: 0;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
 }
